@@ -1,0 +1,40 @@
+.start-page {
+    border: 5px solid;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-bottom: 15px;
+    text-align: center;
+    color: blue;
+    border-radius: 80%;
+}
+
+#start-quiz {
+    color: firebrick;
+    background-color: bisque;
+   
+}
+
+ #results, #time-container, #question-box {
+    padding-block: 5%;
+    border: 5px solid;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 15px;
+    border-radius: 80%;
+    
+}
+
+.hide {
+
+    display: none;
+    
+}
+
+
+
+ul li {
+    list-style: none;
+    justify-content: center;
+    
+}
+

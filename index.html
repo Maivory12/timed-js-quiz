@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <title>Timed JavaScript Quiz</title>
 </head>
 <body>
@@ -12,47 +13,63 @@
 
     <div class="start-page">
         <h2 class="intro">JavaScript Quiz</h2>
-        <p>Test your knowledge on JavaScript. You will be awarded one point per correct question. If you answer any question wrong, 10 seconds will be deducted from the total time. The quiz will be over either when all questions are answered or the timer hits 00:00.</p>
+        <p>Test your knowledge on JavaScript. You will be awarded one point per correct question. If you answer any question wrong, 3 seconds will be deducted from the total time. The quiz will be over either when all questions are answered or the timer hits 00:00.</p>
+        <button id="start-quiz">Start Quiz</button>
     </div>
 
 <!--Quiz Page-->
 
-    <div class="time-container">
-        <h3 class="card-time">Total time : <br> (00: <span id="time">00</span>)</h3>
-    </div>
+    <div class ="row" >
+        <div class="col-8">
+            <div id="question-box"  class="hide">
+                <main class="card-body">
+                    <h2 id="question">Here is were the question will go</h2>
+                    <ul>
+                        <li>
+                            <input type="radio" name="selection" id="a" class="selection">
+                            <label for="a" id="aAnswer">Answer</label>
+                        </li>
+                        
+                        <li>
+                            <input type="radio" name="selection" id="b" class="selection">
+                            <label for="b" id="bAnswer">Answer</label>
+                        </li>
+                        
+                        <li>
+                            <input type="radio" name="selection" id="c" class="selection">
+                            <label for="c" id="cAnswer">Answer</label>
+                        </li>
+                        
+                        <li>
+                            <input type="radio" name="selection" id="d" class="selection">
+                            <label for="d" id="dAnswer">Answer</label>
+                        </li>
+                </main>
+        
+                <button id="submit">Submit</button>
+        
+            </div>
+            
+            
+        </div>
+        <div class="col-4">
+            <div id="time-container" class="hide">
+                <h3 class="card-time">Total time remaining: <br> (00: <span id="time">00</span>)</h3>
+            </div>    
+        </div> 
+    </div> 
+    <!--Results Page-->
+    <div id="results" class="hide">
+        <h3 id="points">Points: <element id="actual"></element>/Correct out of 5</h3>
 
+        <aside>
+            <h2>Enter score here to be placed on the Leaderboard</h2>
+            <form>
+                <input type="text" placeholder="Score" />
+                <button class="submit-score">Submit Score</button>
+            </form>
+        </aside>
 
-    <div class="question-box" id="quiz">
-        <main class="card-body">
-            <h2 id="question">Here is were the question will go</h2>
-            <ul>
-                <li>
-                    <input type="radio" name="selection" id="a" class="selection">
-                    <label for="a" id="aAnswer">Answer</label>
-                </li>
-                
-                <li>
-                    <input type="radio" name="selection" id="b" class="selection">
-                    <label for="b" id="bAnswer">Answer</label>
-                </li>
-                
-                <li>
-                    <input type="radio" name="selection" id="c" class="selection">
-                    <label for="c" id="cAnswer">Answer</label>
-                </li>
-                
-                <li>
-                    <input type="radio" name="selection" id="d" class="selection">
-                    <label for="d" id="dAnswer">Answer</label>
-                </li>
-         </main>
-
-        <button id="submit">Submit</button>
-
-    </div>
-    <!--Finish Page-->
-    <div id="Results">
-        <h3 class="points">Points: <element id="actual"></element>/Correct out of 5</h3>
     </div>
 
         
