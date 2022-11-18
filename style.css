@@ -14,7 +14,7 @@
    
 }
 
- #results, #time-container, #question-box {
+ #results, #time-container, #question-box, #leaderboard {
     padding-block: 5%;
     border: 5px solid;
     text-align: center;

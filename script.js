@@ -1,7 +1,7 @@
 var startPage = document.querySelector(`.start-page`)
 var startBtn = document.getElementById(`start-quiz`);
 var submitBtn = document.getElementById(`submit`);
-var submitScore = document.getElementById(`submit-score`);
+var submitScore = document.querySelector(`.submit-score`);
 var results = document.getElementById(`results`)
 var timeContainer = document.getElementById(`time-container`)
 var questionBox = document.getElementById(`question-box`)
@@ -12,6 +12,7 @@ var bAnswer = document.getElementById(`bAnswer`)
 var cAnswer = document.getElementById(`cAnswer`)
 var dAnswer = document.getElementById(`dAnswer`)
 var points = document.getElementById(`points`)
+var leaderBoard = document.getElementById(`leaderboard`)
 var currentQuestion = 0;
 var score = 0;
 var remainingTime = 60;
@@ -58,12 +59,18 @@ var quizQuestions =[
     }
 ];
 
-//If start quiz button clicked
+//If start quiz button clicked, show questions and timer.
 startBtn.onclick = ()=>{
     startPage.classList.add(`hide`);
     questionBox.classList.remove(`hide`);
     timeContainer.classList.remove(`hide`);
     setTime();
+}
+
+submitScore.onclick = ()=>{
+    results.classList.add(`hide`);
+    leaderBoard.classList.remove(`hide`);
+    
 }
 
 // function to show questions for quiz
@@ -138,6 +145,23 @@ function setTime() {
     }, 1000);
   }
 
+//Click event to display Highscores upon submission
 
 
-  
+/*create high score values
+    var createHighScore = function(event) { 
+        event.preventDefault() 
+        var initials = document.getElementById(`initials`).value;
+        if (!initials) {
+          alert("Enter your intials!");
+         return; 
+          
+        }
+    }
+
+ var HighScore = {
+        initials: initials,
+        score: score
+        } 
+
+*/
