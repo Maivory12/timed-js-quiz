@@ -34,7 +34,7 @@ var quizQuestions =[
         correct: `c`,
     },
     {
-        question:`Using _______ statement is how you test for a specific condition.`,
+        question:`Using ___ statement is how you test for a specific condition.`,
         a:`A.  Select`,
         b:`B.  If`,
         c:`C.  Switch`,
@@ -43,7 +43,7 @@ var quizQuestions =[
 
     },
     {
-        question:`The _______ method of an Array object adds and/or removes elements from an array.`,
+        question:`The ____ method of an Array object adds and/or removes elements from an array.`,
         a:`A.  Reverse`,
         b:`B.   Shift`,
         c:`C.  Slice`,
@@ -56,8 +56,6 @@ var quizQuestions =[
         b:`B. False`,
         correct: `a` 
     }
-
-
 ];
 
 //If start quiz button clicked
@@ -78,11 +76,13 @@ function showQuiz(){
     bAnswer.innerText = currentQuestionData.b
     cAnswer.innerText = currentQuestionData.c
     dAnswer.innerText = currentQuestionData.d
-}  
-//
+} 
+
+//Function to have no answer selected upon initial show of questions
 function deselectAnswers() {
     answerEls.forEach(answerEl => answerEl.checked = false)
 }
+
 //Function to select answer
 function getSelected(){
     let answer
@@ -94,3 +94,50 @@ function getSelected(){
     return answer
 }
 
+// Event listener for submit button + add score for correct answer
+submitBtn.addEventListener(`click`, () => {
+    var answer = getSelected()
+    if (answer) {
+        if (answer === quizQuestions[currentQuestion].correct) {
+            console.log(score++)
+        } else {  
+            console.log("is not correct")
+            remainingTime -= 3
+    }
+
+//This cycles through question after submit click to the end of quiz and displays results page on last answer submit
+        currentQuestion++
+        if(currentQuestion < quizQuestions.length) {
+            showQuiz()
+        } else {
+            questionBox.classList.add(`hide`);
+            timeContainer.classList.add(`hide`);
+            results.classList.remove(`hide`);
+            points.innerHTML = "Points:" + score + "/ out of 5."
+            
+        }
+
+    }
+})
+
+//Functioin for the timer
+function setTime() {
+    // Sets interval in variable
+    var timerInterval = setInterval(function() {
+      remainingTime--;
+      timeEl.textContent = remainingTime;
+      if(remainingTime === 0) {
+        // Stops execution of action at set interval and shows results page when condition is met.
+        clearInterval(timerInterval);
+        questionBox.classList.add(`hide`);
+        timeContainer.classList.add(`hide`);
+        results.classList.remove(`hide`);
+        points.innerHTML = "Points:" + score + "/ out of 5."
+      }
+  
+    }, 1000);
+  }
+
+
+
+  
