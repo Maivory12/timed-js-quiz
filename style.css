@@ -18,16 +18,16 @@
     padding-block: 5%;
     border: 5px solid;
     text-align: center;
-    justify-content: center;
+    text-rendering: geometricPrecision;
+    justify-content:center;
     padding-bottom: 15px;
-    border-radius: 80%;
+    border-radius: 90%;
     
 }
 
 .hide {
 
-    display: none;
-    
+    display: none;  
 }
 
 
