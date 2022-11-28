@@ -173,7 +173,7 @@ function renderHighScore() {
     }
 
 }
-
+// Click event to show highscore 
 submitScore.addEventListener("click", function(event){
     event.preventDefault();
     saveHighScore();

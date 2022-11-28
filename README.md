@@ -35,3 +35,4 @@ For questions please contact Maivory12@icloud.com
 ![Mock Up](./images/_C__Users_14787_gt-bootcamp_homework_Timed-JS-Quiz_index.html_.png)
 
 ##Deployment
+https://maivory12.github.io/timed-js-quiz/
