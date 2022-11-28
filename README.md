@@ -1,5 +1,5 @@
 #Title
-Random Password Generator
+JavaScript Quiz
 
 ##Table of Contents
 - [Description](#description)
@@ -11,7 +11,7 @@ Random Password Generator
 - [Questions](#questions)
 
 ##Description 
-A site provides a short quiz over javaScript.
+A site that provides a short quiz over javaScript.
 
 ##License
 N/a
@@ -32,6 +32,6 @@ N/a
 For questions please contact Maivory12@icloud.com
 
 ##Mock-Up
-![Mock Up]
+![Mock Up](./images/_C__Users_14787_gt-bootcamp_homework_Timed-JS-Quiz_index.html_.png)
 
 ##Deployment

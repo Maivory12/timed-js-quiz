@@ -2,7 +2,8 @@ var startPage = document.querySelector(`.start-page`)
 var startBtn = document.getElementById(`start-quiz`);
 var submitBtn = document.getElementById(`submit`);
 var submitScore = document.querySelector(`.submit-score`);
-var results = document.getElementById(`results`)
+var retry = document.querySelector(`.retry`);
+var results = document.getElementById(`results`);
 var timeContainer = document.getElementById(`time-container`)
 var questionBox = document.getElementById(`question-box`)
 var answerEls = document.querySelectorAll(`.selection`)
@@ -13,6 +14,9 @@ var cAnswer = document.getElementById(`cAnswer`)
 var dAnswer = document.getElementById(`dAnswer`)
 var points = document.getElementById(`points`)
 var leaderBoard = document.getElementById(`leaderboard`)
+var initials = document.getElementById(`initials`)
+var userScore = document.getElementById(`userScore`)
+var highScoreList = document.getElementById(`high-score-list`)
 var currentQuestion = 0;
 var score = 0;
 var remainingTime = 60;
@@ -66,10 +70,9 @@ startBtn.onclick = ()=>{
     timeContainer.classList.remove(`hide`);
     setTime();
 }
-
-submitScore.onclick = ()=>{
-    results.classList.add(`hide`);
-    leaderBoard.classList.remove(`hide`);
+//When submit score is clicked, then high scores show. 
+retry.onclick = (event)=>{
+    startPage.classList.add(`hide`);
     
 }
 
@@ -120,7 +123,9 @@ submitBtn.addEventListener(`click`, () => {
             questionBox.classList.add(`hide`);
             timeContainer.classList.add(`hide`);
             results.classList.remove(`hide`);
+            leaderBoard.classList.remove(`hide`);
             points.innerHTML = "Points:" + score + "/ out of 5."
+            
             
         }
 
@@ -139,29 +144,45 @@ function setTime() {
         questionBox.classList.add(`hide`);
         timeContainer.classList.add(`hide`);
         results.classList.remove(`hide`);
+        leaderBoard.classList.remove(`hide`);
         points.innerHTML = "Points:" + score + "/ out of 5."
+       
       }
   
     }, 1000);
   }
 
-//Click event to display Highscores upon submission
+//Save and show high score
+function saveHighScore() {
+var highScore = {
+    initials: initials.value,
+    userScore: userScore.value,
+};
 
+localStorage.setItem("highScore", JSON.stringify(highScore));
+}
 
-/*create high score values
-    var createHighScore = function(event) { 
-        event.preventDefault() 
-        var initials = document.getElementById(`initials`).value;
-        if (!initials) {
-          alert("Enter your intials!");
-         return; 
-          
-        }
+function renderHighScore() {
+    var lastHighScore = JSON.parse(localStorage.getItem("highScore"));
+    if (lastHighScore !== null) {
+        console.log(saveHighScore)
+        highScoreList.innerHTML = `<ol>${lastHighScore.initials} ${lastHighScore.userScore}</ol>`;
+        
+    } else {
+        return;
     }
 
- var HighScore = {
-        initials: initials,
-        score: score
-        } 
+}
 
-*/
+submitScore.addEventListener("click", function(event){
+    event.preventDefault();
+    saveHighScore();
+    renderHighScore();
+
+});
+
+function init() {
+    renderHighScore();
+}
+
+init();
